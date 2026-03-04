@@ -36,28 +36,47 @@ Este projeto apoia pesquisa experimental em neurociência comportamental, utiliz
 
 ---
 
-## Como Configurar o Ambiente
+## Instalação — Versões Validadas
 
-### Pré-requisitos
-- [Miniconda](https://docs.anaconda.com/miniconda/) instalado
-- Driver NVIDIA atualizado com suporte a CUDA 13.1
+> ⚠️ O DeepLabCut é sensível a versões específicas de drivers e ferramentas.
+> Este passo a passo foi testado e validado — siga exatamente as versões indicadas para evitar erros de compatibilidade.
+>
+> **Nota:** O CUDA 13.1 exibido pelo `nvidia-smi` indica a versão máxima suportada pelo driver. O CUDA Toolkit 11.2 é a versão específica exigida pelo TensorFlow usado pelo DeepLabCut.
 
-### Instalação
+### 1. Instalar a GPU e CUDA
+
+- Instalar o driver atualizado da GPU
+- Instalar o **CUDA Toolkit 11.2**
+- Copiar os arquivos do **cuDNN** para:
+  `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2`
+
+### 2. Instalar o Miniconda
+
+- Baixar e instalar o [Miniconda](https://docs.anaconda.com/miniconda/)
+- Verificar a instalação no Anaconda Prompt:
 ```bash
-# Criar ambiente virtual
-conda create -n deeplabcut python=3.10 -y
-
-# Ativar ambiente
-conda activate deeplabcut
-
-# Instalar DeepLabCut com TensorFlow e GUI
-pip install "deeplabcut[tf]"
-pip install "deeplabcut[gui]"
+conda --version
 ```
 
-### Verificar instalação
+### 3. Criar e ativar o ambiente virtual
 ```bash
+conda create -n deeplabcut python=3.10 -y
+conda activate deeplabcut
+```
+
+### 4. Instalar o DeepLabCut
+```bash
+# Instalar DLC com TensorFlow
+pip install "deeplabcut[tf]"
+
+# Verificar instalação
 python -c "import deeplabcut; print(deeplabcut.__version__)"
+
+# Instalar GUI
+pip install "deeplabcut[gui]"
+
+# Testar abertura da interface
+python -c "import deeplabcut; deeplabcut.launch_dlc()"
 ```
 
 ---
@@ -77,9 +96,9 @@ Salve como `abrir_deeplabcut.bat` e execute direto pela área de trabalho.
 
 ## Status do Projeto
 
-🎥 **Fase atual:** Filmagem dos animais nos testes comportamentais
+**Fase atual:** Filmagem dos animais nos testes comportamentais
 
-⏳ **Próximos passos:**
+**Próximos passos:**
 - Anotação manual dos pontos corporais no DLC
 - Treinamento do modelo com GPU
 - Extração automática de métricas
