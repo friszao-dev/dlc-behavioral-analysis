@@ -1,8 +1,8 @@
-# DLC Behavioral Analysis — FarmoLab
+# DLC Behavioral Analysis
 
 Ambiente de análise comportamental com DeepLabCut para rastreamento de camundongos em pesquisa neurocientífica.
 
-Projeto desenvolvido em colaboração com o FarmoLab, com foco na extração automatizada de métricas comportamentais a partir de vídeos de testes padronizados.
+Projeto desenvolvido em colaboração com um trabalho de pesquisa em neurociência, com foco na extração automatizada de métricas comportamentais a partir de vídeos de testes padronizados.
 
 ---
 
@@ -106,6 +106,19 @@ Salve como `abrir_deeplabcut.bat` e execute direto pela área de trabalho.
 
 ---
 
+## Fluxo de Dados Planejado
+
+Vídeos RAW  
+→ DeepLabCut (extração de coordenadas)  
+→ Arquivos CSV (coordenadas frame a frame)  
+→ Processamento e cálculo de métricas comportamentais  
+→ Dataset analítico estruturado  
+→ Análise estatística
+
+A ideia é manter separação entre dados brutos, dados intermediários e dados analíticos, garantindo rastreabilidade.
+
+---
+
 ## Colaboração
 
-Projeto desenvolvido em suporte à pesquisa do FarmoLab.
+Projeto desenvolvido em suporte à pesquisa de neurociência.
